@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">My Git Repositories</string>
+    <string name="ct_repository_image">Imagem do repositório</string>
+    <string name="search_menu_rs">Pesquisar</string>
+</resources>
