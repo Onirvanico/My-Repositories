@@ -14,8 +14,8 @@
         
         <ImageView
             android:id="@+id/repository_image"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
+            android:layout_width="@dimen/image_size"
+            android:layout_height="120dp"
             app:layout_constraintHorizontal_weight="0.4"
             android:scaleType="centerCrop"
             tools:srcCompat="@tools:sample/avatars"
@@ -82,11 +82,15 @@
             android:id="@+id/starts_repository"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:padding="5dp"
+            style="@style/Widget.AppCompat.RatingBar.Small"
+            android:contentDescription="@string/ct_start_number"
+            android:layout_margin="8dp"
             android:rating="3"
+            app:layout_constraintHorizontal_bias="0"
             app:layout_constraintStart_toStartOf="@+id/text_repository_description"
             app:layout_constraintTop_toBottomOf="@+id/text_repository_description"
-            app:layout_constraintEnd_toEndOf="@+id/text_repository_description" />
+            app:layout_constraintEnd_toEndOf="@+id/text_repository_description"
+            app:layout_constraintBottom_toBottomOf="@+id/language_repository"/>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
     

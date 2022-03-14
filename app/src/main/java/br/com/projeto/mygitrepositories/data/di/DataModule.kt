@@ -1,6 +1,8 @@
 package br.com.projeto.mygitrepositories.data.di
 
 import android.util.Log
+import br.com.projeto.mygitrepositories.data.repository.RepoRepository
+import br.com.projeto.mygitrepositories.data.repository.RepoRepositoryImpl
 import br.com.projeto.mygitrepositories.data.service.GitHubService
 import com.google.gson.Gson
 import com.google.gson.GsonBuilder
@@ -17,7 +19,15 @@ object DataModule {
     private const val OK_HTTP = "OkHttp"
 
     fun load() {
-        loadKoinModules(networModules())
+        loadKoinModules(networModules() + repositoryModules())
+    }
+
+    private fun repositoryModules(): Module {
+        return module {
+            single<RepoRepository> {
+                RepoRepositoryImpl(get())
+            }
+        }
     }
 
     private fun networModules(): Module {
@@ -25,7 +35,7 @@ object DataModule {
 
             single {
                 val interceptor =  HttpLoggingInterceptor {
-                    Log.d(OK_HTTP, "networModules: ")
+                    Log.d(OK_HTTP, it)
                 }
 
                 interceptor.level = HttpLoggingInterceptor.Level.BODY
