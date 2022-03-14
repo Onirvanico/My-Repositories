@@ -37,10 +37,6 @@ class MainViewModel(
         }
     }
 
-    init {
-
-    }
-
     sealed class State {
         object Loading : State()
         data class Success(val repositories: List<Repo>) : State()

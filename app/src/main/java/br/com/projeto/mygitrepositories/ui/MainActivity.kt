@@ -11,7 +11,6 @@ import br.com.projeto.mygitrepositories.core.hidSoftKeyBoard
 import br.com.projeto.mygitrepositories.databinding.ActivityMainBinding
 import br.com.projeto.mygitrepositories.presentation.MainViewModel
 import br.com.projeto.mygitrepositories.ui.adapters.RepositoriesListAdapter
-import com.google.android.material.snackbar.Snackbar
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class MainActivity : AppCompatActivity() {

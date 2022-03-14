@@ -17,6 +17,7 @@ import retrofit2.converter.gson.GsonConverterFactory
 object DataModule {
 
     private const val OK_HTTP = "OkHttp"
+    private const val BASE_URL = "https://api.github.com/"
 
     fun load() {
         loadKoinModules(networModules() + repositoryModules())
@@ -56,7 +57,7 @@ object DataModule {
 
     private inline fun <reified T> createService(client: OkHttpClient, factory: GsonConverterFactory): T {
         return Retrofit.Builder()
-            .baseUrl("https://api.github.com/")
+            .baseUrl(BASE_URL)
             .client(client)
             .addConverterFactory(factory)
             .build()

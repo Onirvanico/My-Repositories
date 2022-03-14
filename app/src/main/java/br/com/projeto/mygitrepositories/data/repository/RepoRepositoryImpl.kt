@@ -14,7 +14,11 @@ class RepoRepositoryImpl(private val gitHubService: GitHubService): RepoReposito
             emit(repositories)
 
         }catch (ex: HttpException) {
-            throw RemoteException(ex.message ?: "Não foi possível concluir a busca, tente novamente")
+            if(ex.code() == 404) {
+                throw RemoteException("Usuário não encontrado")
+            } else {
+                throw RemoteException(ex.message ?: "Não foi possível concluir a busca, tente novamente")
+            }
         }
     }
 }
